@@ -1,0 +1,36 @@
+.couple {
+    padding: 10px;
+}
+
+.content {
+    width: 100%;
+}
+
+.params {
+    width: 100%;
+}
+
+.params > *:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    border-top: none;
+}
+
+.params > *:not(:only-child):first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.params > *:not(:only-child):last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+}
+
+.actions {
+    opacity: .3;
+    transition: opacity .15s;
+}
+
+.couple:hover .actions {
+    opacity: 1;
+}

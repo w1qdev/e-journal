@@ -1,0 +1,21 @@
+.param {
+    width: 100%;
+}
+
+.param:hover {
+    cursor: pointer;
+}
+
+.half {
+    flex: 1;
+}
+
+.subject {
+    flex: 3;
+    text-align: center;
+}
+
+.office {
+    flex: 1;
+    text-align: right;
+}

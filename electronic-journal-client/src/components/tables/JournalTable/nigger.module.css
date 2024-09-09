@@ -1,0 +1,79 @@
+.cell {
+    background: white;
+    left: 0;
+    z-index: 1;
+}
+
+[data-theme='dark'] .cell {
+    background: #141414;
+}
+
+.cell.five {
+    background: rgba(0, 255, 41, 0.4);
+}
+
+[data-theme='dark'] .cell.five {
+    background: rgba(73, 255, 0, 0.44);
+}
+
+.cell.four {
+    background: rgba(143, 255, 0, 0.4);
+}
+
+[data-theme='dark'] .cell.four {
+    background: rgba(167, 255, 0, 0.58);
+}
+
+.cell.three {
+    background: rgba(255, 245, 0, 0.4);
+}
+
+[data-theme='dark'] .cell.three {
+    background: rgba(255, 202, 0, 0.58);
+}
+
+.cell.one,
+.cell.two {
+    background: rgba(255, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .cell.one,
+[data-theme='dark'] .cell.two {
+    background: rgba(255, 0, 0, 0.64);
+}
+
+.cell.other {
+    background: rgba(215, 215, 215, 0.4);
+}
+
+[data-theme='dark'] .cell.other {
+    background: rgba(215, 215, 215, 0.1);
+}
+
+
+.sticky {
+    position: sticky;
+    z-index: 2;
+}
+
+.static {
+    position: static;
+}
+
+.action:hover {
+    cursor: pointer;
+}
+
+.cell.action:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .075);
+}
+
+[data-theme='dark'] .cell.action:hover::after {
+    background: rgba(255, 255, 255, .1);
+}

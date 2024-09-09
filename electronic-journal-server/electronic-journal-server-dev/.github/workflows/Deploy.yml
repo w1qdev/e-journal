@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SERVER_KEY }}
+
+      - name: Add host key to known_hosts
+        run: ssh-keyscan ${{ secrets.DEPLOY_SERVER_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
+          ssh -t ${{ secrets.DEPLOY_SERVER_USERNAME }}@${{ secrets.DEPLOY_SERVER_HOST }} <<EOF
+            screen -S journal -X stuff "^C"
+            screen -S journal -X quit
+            cd ../home/journal/server
+            git pull origin dev
+            screen -d -m -S journal bash -c "source venv/bin/activate && gunicorn __index__:app -b :5535 --workers 2"
+          EOF
+        
+      - name: Information
+        run: echo "Successful deploy!"

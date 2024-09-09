@@ -1,0 +1,9 @@
+export const USER_TAG = 'USER';
+export const SUBJECT_TAG = 'SUBJECT';
+export const GROUP_TAG = 'GROUP';
+export const DEPARTMENT_TAG = 'DEPARTMENT';
+export const PROFESSION_TAG = 'PROFESSION';
+export const SCHEDULE_TAG = 'SCHEDULE';
+export const SCHEDULE_PARAM_TAG = 'SCHEDULE-PARAM';
+export const JOURNAL_TAG = 'JOURNAL';
+export const REPORT_TAG = 'REPORT';

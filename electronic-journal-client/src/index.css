@@ -1,0 +1,29 @@
+:root {
+    color-scheme: light;
+    --accent: #4096ff;
+}
+
+[data-theme='dark'] {
+    color-scheme: dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.highlight-table-row:hover > td::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .025);
+}
+
+[data-theme='dark'] .highlight-table-row:hover > td::after {
+    background: rgba(255, 255, 255, .05);
+}
+
