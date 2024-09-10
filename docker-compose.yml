@@ -1,6 +1,6 @@
-networks:
-  dev:
-    external: true
+# networks:
+#   dev:
+#     external: true
 
 services:
   nginx:
@@ -12,17 +12,13 @@ services:
     depends_on:
       - backend
       - frontend
-    networks:
-      - dev
 
   backend:
     build:
       context: "./backend"
-    networks:
-      - dev
+    network_mode: "host"
 
   frontend:
     build:
       context: "./frontend"
-    networks:
-      - dev
+    network_mode: "host"
