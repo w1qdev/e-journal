@@ -56,11 +56,17 @@ def get_user_by_role(user):
 
 @user_router.post('/user/login')
 def login():
+    print("start login")
     data = flaskparser.parser.parse(login_model, request)
+    print("data parsed")
     user, session = user_service.login(data['username'], data['password'])
+    print("got user and session")
 
     res = make_response(jsonify(user))
+    print("made response")
+
     res.set_cookie('session', session, max_age=60*60*24)
+    print("changed cookies")
 
     return res
 
