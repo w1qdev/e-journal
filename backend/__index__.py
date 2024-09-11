@@ -27,7 +27,11 @@ def api_error(error):
 
 @app.before_request
 def before_request():
-    db.connect()
+    try:
+        db.connect()
+        print("Successfuly connected to the database")
+    except Exception as ex:
+        print("Failed to connect to database")
 
 
 @app.after_request
