@@ -22,7 +22,7 @@ def api_error(error):
 
 @app.errorhandler(404)
 def api_error(error):
-    return 'Url not found', 404
+    return f'Url not found {error}', 404
 
 
 @app.before_request
