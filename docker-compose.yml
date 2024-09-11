@@ -15,7 +15,7 @@ services:
     build:
       context: "./backend"
     networks:
-      - network
+      - networks
 
   frontend:
     build:
