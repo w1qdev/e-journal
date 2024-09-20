@@ -9,7 +9,7 @@ from models import Profession, Department, Role, User, Session, Subject, Group, 
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
-CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": ["https://urtk-journal.ru", "https://urtk-mephi.ru"]}})
+CORS(app, supports_credentials=True, resources={r"/api/*": {"origins": "*"}})
 
 for route in routes:
     app.register_blueprint(route, url_prefix='/api')
