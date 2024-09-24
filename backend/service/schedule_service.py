@@ -287,7 +287,8 @@ def get_group_schedule(group_id: int):
                         'number': param.number,
                         'time': time,
                         'name': f'{lesson_name}',
-                        'office': f'{param.office}'
+                        'office': f'{param.office}',
+                        'sub_group': f'{param.sub_group}'
                     }
 
             group_obj['schedule'].append(day)
