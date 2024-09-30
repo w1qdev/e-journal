@@ -24,7 +24,7 @@ export const SchedulesPage = () => {
             const { data } = await axiosInstance.get<Blob>('/schedule/urtk/download', {
                 responseType: 'blob',
             });
-            saveBlobToFile(data, 'Расписание');
+            saveBlobToFile(data, 'Расписание.xlsx');
         } catch (e) {
             const error = e as AxiosError
             const message = getErrorMessage(e);
