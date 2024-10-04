@@ -53,7 +53,18 @@ export const SchedulePage = () => {
                 <Row gutter={[20, 20]} wrap>
                 {groups
                     ?.filter((group) => group.name.toLowerCase().includes(search.toLowerCase()))
-                    .sort((a, b) => a.name.charAt(1).localeCompare(b.name.charAt(1))) // сортировка по второму символу
+                    .sort((a, b) => {
+                        // Сначала сортировка по первой цифре
+                        const firstDigitA = parseInt(a.name.charAt(0), 10);
+                        const firstDigitB = parseInt(b.name.charAt(0), 10);
+                        
+                        if (firstDigitA !== firstDigitB) {
+                          return firstDigitA - firstDigitB; // сортировка по цифрам
+                        }
+                        
+                        // Если цифры одинаковые, сортируем по второму символу
+                        return a.name.charAt(1).localeCompare(b.name.charAt(1));
+                    })
                     .map((group) => {
                         const params = schedule?.params.filter((i) => i.group.id === group.id) || [];
 
