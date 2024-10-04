@@ -53,6 +53,7 @@ export const SchedulePage = () => {
                 <Row gutter={[20, 20]} wrap>
                     {groups
                         ?.filter((group) => group.name.toLowerCase().includes(search.toLowerCase()))
+                        .sort((a, b) => a.name.charAt(1).localeCompare(b.name.charAt(1))
                         .map((group) => {
                             const params =
                                 schedule?.params.filter((i) => i.group.id === group.id) || [];
