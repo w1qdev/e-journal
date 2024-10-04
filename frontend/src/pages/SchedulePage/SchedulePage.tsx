@@ -61,9 +61,20 @@ export const SchedulePage = () => {
                         if (firstDigitA !== firstDigitB) {
                           return firstDigitA - firstDigitB; // сортировка по цифрам
                         }
+                    
+                        // Затем сортировка по второму символу
+                        const secondCharA = a.name.charAt(1).toLowerCase();
+                        const secondCharB = b.name.charAt(1).toLowerCase();
                         
-                        // Если цифры одинаковые, сортируем по второму символу
-                        return a.name.charAt(1).localeCompare(b.name.charAt(1));
+                        if (secondCharA !== secondCharB) {
+                          return secondCharA.localeCompare(secondCharB); // сортировка по второму символу
+                        }
+                    
+                        // Наконец сортировка по последней цифре
+                        const lastDigitA = parseInt(a.name.charAt(a.name.length - 1), 10);
+                        const lastDigitB = parseInt(b.name.charAt(b.name.length - 1), 10);
+                        
+                        return lastDigitA - lastDigitB;
                     })
                     .map((group) => {
                         const params = schedule?.params.filter((i) => i.group.id === group.id) || [];
